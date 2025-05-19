@@ -30,6 +30,15 @@ struct ContentView: View {
             }
             .buttonStyle(.borderedProminent)
             .padding(.horizontal)
+            Button(action: {
+                viewModel.reset()
+            }) {
+                Text("Reset")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .padding(.horizontal)
         }
         .onAppear {
             viewModel.onFiveMinuteInterval = {

@@ -29,6 +29,15 @@ struct ContentView: View {
             }
             .buttonStyle(.borderedProminent)
             .padding(.horizontal)
+            Button(action: {
+                viewModel.reset()
+            }) {
+                Text("Reset")
+                    .font(.title2)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .padding(.horizontal)
             Spacer()
         }
     }
