@@ -7,7 +7,6 @@
 
 import SwiftUI
 import WatchKit
-import HapticTimer
 
 struct ContentView: View {
     @StateObject private var viewModel = TimerViewModel()
