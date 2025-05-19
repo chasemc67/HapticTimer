@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		ABB409C22DDAC673008DCD0E /* HapticTimerWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = ABB409C12DDAC673008DCD0E /* HapticTimerWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		ABB4099E2DDAC611008DCD0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,12 +25,51 @@
 			remoteGlobalIDString = ABB4098F2DDAC610008DCD0E;
 			remoteInfo = HapticTimer;
 		};
+		ABB409C32DDAC673008DCD0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABB409882DDAC610008DCD0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABB409C02DDAC673008DCD0E;
+			remoteInfo = "HapticTimerWatch Watch App";
+		};
+		ABB409D12DDAC674008DCD0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABB409882DDAC610008DCD0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABB409C02DDAC673008DCD0E;
+			remoteInfo = "HapticTimerWatch Watch App";
+		};
+		ABB409DB2DDAC674008DCD0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABB409882DDAC610008DCD0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABB409C02DDAC673008DCD0E;
+			remoteInfo = "HapticTimerWatch Watch App";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ABB409E52DDAC675008DCD0E /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				ABB409C22DDAC673008DCD0E /* HapticTimerWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		ABB409902DDAC610008DCD0E /* HapticTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HapticTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB4099D2DDAC611008DCD0E /* HapticTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HapticTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB409A72DDAC611008DCD0E /* HapticTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HapticTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB409BC2DDAC673008DCD0E /* HapticTimerWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HapticTimerWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB409C12DDAC673008DCD0E /* HapticTimerWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HapticTimerWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB409D02DDAC674008DCD0E /* HapticTimerWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HapticTimerWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB409DA2DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HapticTimerWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -43,6 +86,21 @@
 		ABB409AA2DDAC611008DCD0E /* HapticTimerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HapticTimerUITests;
+			sourceTree = "<group>";
+		};
+		ABB409C52DDAC673008DCD0E /* HapticTimerWatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "HapticTimerWatch Watch App";
+			sourceTree = "<group>";
+		};
+		ABB409D32DDAC674008DCD0E /* HapticTimerWatch Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "HapticTimerWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		ABB409DD2DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "HapticTimerWatch Watch AppUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,6 +127,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ABB409BE2DDAC673008DCD0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB409CD2DDAC674008DCD0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB409D72DDAC674008DCD0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +157,9 @@
 				ABB409922DDAC610008DCD0E /* HapticTimer */,
 				ABB409A02DDAC611008DCD0E /* HapticTimerTests */,
 				ABB409AA2DDAC611008DCD0E /* HapticTimerUITests */,
+				ABB409C52DDAC673008DCD0E /* HapticTimerWatch Watch App */,
+				ABB409D32DDAC674008DCD0E /* HapticTimerWatch Watch AppTests */,
+				ABB409DD2DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests */,
 				ABB409912DDAC610008DCD0E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +170,10 @@
 				ABB409902DDAC610008DCD0E /* HapticTimer.app */,
 				ABB4099D2DDAC611008DCD0E /* HapticTimerTests.xctest */,
 				ABB409A72DDAC611008DCD0E /* HapticTimerUITests.xctest */,
+				ABB409BC2DDAC673008DCD0E /* HapticTimerWatch.app */,
+				ABB409C12DDAC673008DCD0E /* HapticTimerWatch Watch App.app */,
+				ABB409D02DDAC674008DCD0E /* HapticTimerWatch Watch AppTests.xctest */,
+				ABB409DA2DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,6 +249,93 @@
 			productReference = ABB409A72DDAC611008DCD0E /* HapticTimerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		ABB409BB2DDAC673008DCD0E /* HapticTimerWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB409E62DDAC675008DCD0E /* Build configuration list for PBXNativeTarget "HapticTimerWatch" */;
+			buildPhases = (
+				ABB409BA2DDAC673008DCD0E /* Resources */,
+				ABB409E52DDAC675008DCD0E /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABB409C42DDAC673008DCD0E /* PBXTargetDependency */,
+			);
+			name = HapticTimerWatch;
+			packageProductDependencies = (
+			);
+			productName = HapticTimerWatch;
+			productReference = ABB409BC2DDAC673008DCD0E /* HapticTimerWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		ABB409C02DDAC673008DCD0E /* HapticTimerWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB409E22DDAC675008DCD0E /* Build configuration list for PBXNativeTarget "HapticTimerWatch Watch App" */;
+			buildPhases = (
+				ABB409BD2DDAC673008DCD0E /* Sources */,
+				ABB409BE2DDAC673008DCD0E /* Frameworks */,
+				ABB409BF2DDAC673008DCD0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				ABB409C52DDAC673008DCD0E /* HapticTimerWatch Watch App */,
+			);
+			name = "HapticTimerWatch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "HapticTimerWatch Watch App";
+			productReference = ABB409C12DDAC673008DCD0E /* HapticTimerWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ABB409CF2DDAC674008DCD0E /* HapticTimerWatch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB409E92DDAC675008DCD0E /* Build configuration list for PBXNativeTarget "HapticTimerWatch Watch AppTests" */;
+			buildPhases = (
+				ABB409CC2DDAC674008DCD0E /* Sources */,
+				ABB409CD2DDAC674008DCD0E /* Frameworks */,
+				ABB409CE2DDAC674008DCD0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABB409D22DDAC674008DCD0E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ABB409D32DDAC674008DCD0E /* HapticTimerWatch Watch AppTests */,
+			);
+			name = "HapticTimerWatch Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "HapticTimerWatch Watch AppTests";
+			productReference = ABB409D02DDAC674008DCD0E /* HapticTimerWatch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ABB409D92DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB409EC2DDAC675008DCD0E /* Build configuration list for PBXNativeTarget "HapticTimerWatch Watch AppUITests" */;
+			buildPhases = (
+				ABB409D62DDAC674008DCD0E /* Sources */,
+				ABB409D72DDAC674008DCD0E /* Frameworks */,
+				ABB409D82DDAC674008DCD0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABB409DC2DDAC674008DCD0E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ABB409DD2DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests */,
+			);
+			name = "HapticTimerWatch Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "HapticTimerWatch Watch AppUITests";
+			productReference = ABB409DA2DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +357,20 @@
 						CreatedOnToolsVersion = 16.3;
 						TestTargetID = ABB4098F2DDAC610008DCD0E;
 					};
+					ABB409BB2DDAC673008DCD0E = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					ABB409C02DDAC673008DCD0E = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					ABB409CF2DDAC674008DCD0E = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = ABB409C02DDAC673008DCD0E;
+					};
+					ABB409D92DDAC674008DCD0E = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = ABB409C02DDAC673008DCD0E;
+					};
 				};
 			};
 			buildConfigurationList = ABB4098B2DDAC610008DCD0E /* Build configuration list for PBXProject "HapticTimer" */;
@@ -203,6 +390,10 @@
 				ABB4098F2DDAC610008DCD0E /* HapticTimer */,
 				ABB4099C2DDAC611008DCD0E /* HapticTimerTests */,
 				ABB409A62DDAC611008DCD0E /* HapticTimerUITests */,
+				ABB409BB2DDAC673008DCD0E /* HapticTimerWatch */,
+				ABB409C02DDAC673008DCD0E /* HapticTimerWatch Watch App */,
+				ABB409CF2DDAC674008DCD0E /* HapticTimerWatch Watch AppTests */,
+				ABB409D92DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +414,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		ABB409A52DDAC611008DCD0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB409BA2DDAC673008DCD0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB409BF2DDAC673008DCD0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB409CE2DDAC674008DCD0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB409D82DDAC674008DCD0E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +472,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ABB409BD2DDAC673008DCD0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB409CC2DDAC674008DCD0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABB409D62DDAC674008DCD0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +505,21 @@
 			isa = PBXTargetDependency;
 			target = ABB4098F2DDAC610008DCD0E /* HapticTimer */;
 			targetProxy = ABB409A82DDAC611008DCD0E /* PBXContainerItemProxy */;
+		};
+		ABB409C42DDAC673008DCD0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABB409C02DDAC673008DCD0E /* HapticTimerWatch Watch App */;
+			targetProxy = ABB409C32DDAC673008DCD0E /* PBXContainerItemProxy */;
+		};
+		ABB409D22DDAC674008DCD0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABB409C02DDAC673008DCD0E /* HapticTimerWatch Watch App */;
+			targetProxy = ABB409D12DDAC674008DCD0E /* PBXContainerItemProxy */;
+		};
+		ABB409DC2DDAC674008DCD0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABB409C02DDAC673008DCD0E /* HapticTimerWatch Watch App */;
+			targetProxy = ABB409DB2DDAC674008DCD0E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -518,6 +773,170 @@
 			};
 			name = Release;
 		};
+		ABB409E32DDAC675008DCD0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QLYWR2R9M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HapticTimerWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AnomalousResearch.HapticTimerWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		ABB409E42DDAC675008DCD0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QLYWR2R9M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HapticTimerWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AnomalousResearch.HapticTimerWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		ABB409E72DDAC675008DCD0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QLYWR2R9M;
+				INFOPLIST_KEY_CFBundleDisplayName = HapticTimerWatch;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AnomalousResearch.HapticTimerWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		ABB409E82DDAC675008DCD0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QLYWR2R9M;
+				INFOPLIST_KEY_CFBundleDisplayName = HapticTimerWatch;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AnomalousResearch.HapticTimerWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		ABB409EA2DDAC675008DCD0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QLYWR2R9M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AnomalousResearch.HapticTimerWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HapticTimerWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HapticTimerWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		ABB409EB2DDAC675008DCD0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QLYWR2R9M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AnomalousResearch.HapticTimerWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HapticTimerWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HapticTimerWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		ABB409ED2DDAC675008DCD0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QLYWR2R9M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AnomalousResearch.HapticTimerWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "HapticTimerWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		ABB409EE2DDAC675008DCD0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QLYWR2R9M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AnomalousResearch.HapticTimerWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "HapticTimerWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,6 +972,42 @@
 			buildConfigurations = (
 				ABB409B82DDAC611008DCD0E /* Debug */,
 				ABB409B92DDAC611008DCD0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB409E22DDAC675008DCD0E /* Build configuration list for PBXNativeTarget "HapticTimerWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB409E32DDAC675008DCD0E /* Debug */,
+				ABB409E42DDAC675008DCD0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB409E62DDAC675008DCD0E /* Build configuration list for PBXNativeTarget "HapticTimerWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB409E72DDAC675008DCD0E /* Debug */,
+				ABB409E82DDAC675008DCD0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB409E92DDAC675008DCD0E /* Build configuration list for PBXNativeTarget "HapticTimerWatch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB409EA2DDAC675008DCD0E /* Debug */,
+				ABB409EB2DDAC675008DCD0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB409EC2DDAC675008DCD0E /* Build configuration list for PBXNativeTarget "HapticTimerWatch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB409ED2DDAC675008DCD0E /* Debug */,
+				ABB409EE2DDAC675008DCD0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
