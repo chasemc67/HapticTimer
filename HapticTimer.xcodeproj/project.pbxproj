@@ -73,13 +73,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		ABB409F42DDAD50F008DCD0E /* Exceptions for "HapticTimerWatch Watch App" folder in "HapticTimer" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ContentView.swift,
-			);
-			target = ABB4098F2DDAC610008DCD0E /* HapticTimer */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -100,9 +93,6 @@
 		};
 		ABB409C52DDAC673008DCD0E /* HapticTimerWatch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				ABB409F42DDAD50F008DCD0E /* Exceptions for "HapticTimerWatch Watch App" folder in "HapticTimer" target */,
-			);
 			path = "HapticTimerWatch Watch App";
 			sourceTree = "<group>";
 		};
