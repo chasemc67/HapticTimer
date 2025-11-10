@@ -11,7 +11,11 @@ import SwiftUI
 struct HapticTimerWatch_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView()
+                HapticTestView()
+            }
+            .tabViewStyle(.page)
         }
     }
 }

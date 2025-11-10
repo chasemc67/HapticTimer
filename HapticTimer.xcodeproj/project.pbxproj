@@ -72,9 +72,6 @@
 		ABB409DA2DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HapticTimerWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		ABB409922DDAC610008DCD0E /* HapticTimer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
