@@ -12,33 +12,62 @@ struct ContentView: View {
     @StateObject private var viewModel = TimerViewModel()
     
     var body: some View {
-        VStack(spacing: 16) {
-            Text(timeString(from: viewModel.elapsedTime))
-                .font(.system(size: 36, weight: .medium, design: .monospaced))
-                .padding(.top, 16)
-            
-            Button(action: {
-                if viewModel.isRunning {
-                    viewModel.stop()
-                } else {
-                    viewModel.start()
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                // Time display at top
+                Spacer()
+                    .frame(height: 20)
+                
+                Text(timeString(from: viewModel.elapsedTime))
+                    .font(.system(size: 48, weight: .light, design: .monospaced))
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+                
+                Spacer()
+                
+                // Bottom buttons
+                HStack(spacing: 0) {
+                    // Left button - Reset
+                    Button(action: {
+                        viewModel.reset()
+                    }) {
+                        Circle()
+                            .fill(Color.gray.opacity(0.3))
+                            .frame(width: 60, height: 60)
+                            .overlay(
+                                Text("Reset")
+                                    .font(.system(size: 12, weight: .medium))
+                                    .foregroundColor(.white)
+                            )
+                    }
+                    .buttonStyle(.plain)
+                    .disabled(viewModel.elapsedTime == 0)
+                    .opacity(viewModel.elapsedTime == 0 ? 0.5 : 1)
+                    
+                    Spacer()
+                    
+                    // Right button - Start/Stop
+                    Button(action: {
+                        if viewModel.isRunning {
+                            viewModel.stop()
+                        } else {
+                            viewModel.start()
+                        }
+                    }) {
+                        Circle()
+                            .fill(viewModel.isRunning ? Color.red.opacity(0.3) : Color.green.opacity(0.3))
+                            .frame(width: 60, height: 60)
+                            .overlay(
+                                Text(viewModel.isRunning ? "Stop" : "Start")
+                                    .font(.system(size: 12, weight: .medium))
+                                    .foregroundColor(viewModel.isRunning ? .red : .green)
+                            )
+                    }
+                    .buttonStyle(.plain)
                 }
-            }) {
-                Text(viewModel.isRunning ? "Stop" : "Start")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 16)
             }
-            .buttonStyle(.borderedProminent)
-            .padding(.horizontal)
-            Button(action: {
-                viewModel.reset()
-            }) {
-                Text("Reset")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.bordered)
-            .padding(.horizontal)
         }
         .onAppear {
             viewModel.onFiveMinuteInterval = {
@@ -49,9 +78,16 @@ struct ContentView: View {
     
     private func timeString(from interval: TimeInterval) -> String {
         let totalSeconds = Int(interval)
-        let minutes = totalSeconds / 60
+        let hours = totalSeconds / 3600
+        let minutes = (totalSeconds % 3600) / 60
         let seconds = totalSeconds % 60
-        return String(format: "%02d:%02d", minutes, seconds)
+        let centiseconds = Int((interval.truncatingRemainder(dividingBy: 1)) * 100)
+        
+        if hours > 0 {
+            return String(format: "%02d:%02d:%02d.%02d", hours, minutes, seconds, centiseconds)
+        } else {
+            return String(format: "%02d:%02d.%02d", minutes, seconds, centiseconds)
+        }
     }
 }
 
