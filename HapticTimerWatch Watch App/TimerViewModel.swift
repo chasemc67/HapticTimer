@@ -10,8 +10,10 @@ class TimerViewModel: ObservableObject {
     private var accumulatedTime: TimeInterval = 0
     private var lastHapticInterval: Int = 0
     
-    // Called when a 5-minute interval is reached
-    var onFiveMinuteInterval: (() -> Void)?
+    var hapticIntervalMinutes: Int = 5
+    
+    // Called when a haptic interval is reached, with the count of how many intervals
+    var onHapticInterval: ((Int) -> Void)?
     
     func start() {
         guard !isRunning else { return }
@@ -21,11 +23,12 @@ class TimerViewModel: ObservableObject {
             guard let self = self, let startTime = self.startTime else { return }
             self.elapsedTime = self.accumulatedTime + Date().timeIntervalSince(startTime)
             
-            // Check for 5-minute intervals
-            let interval = Int(self.elapsedTime) / 300
-            if interval > self.lastHapticInterval {
-                self.lastHapticInterval = interval
-                self.onFiveMinuteInterval?()
+            // Check for custom interval
+            let intervalSeconds = self.hapticIntervalMinutes * 60
+            let currentInterval = Int(self.elapsedTime) / intervalSeconds
+            if currentInterval > self.lastHapticInterval && currentInterval > 0 {
+                self.lastHapticInterval = currentInterval
+                self.onHapticInterval?(currentInterval)
             }
         }
     }

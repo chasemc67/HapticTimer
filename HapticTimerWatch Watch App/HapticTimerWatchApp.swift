@@ -12,7 +12,8 @@ struct HapticTimerWatch_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                ContentView()
+                SettingsView()
+            ContentView()
                 HapticTestView()
             }
             .tabViewStyle(.page)

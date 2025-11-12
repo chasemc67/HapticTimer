@@ -10,6 +10,7 @@ import WatchKit
 
 struct ContentView: View {
     @StateObject private var viewModel = TimerViewModel()
+    @AppStorage("hapticIntervalMinutes") private var hapticIntervalMinutes: Int = 5
     
     var body: some View {
         GeometryReader { geometry in
@@ -70,8 +71,24 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            viewModel.onFiveMinuteInterval = {
-                WKInterfaceDevice.current().play(.notification)
+            setupHapticFeedback()
+        }
+        .onChange(of: hapticIntervalMinutes) { _, newValue in
+            viewModel.hapticIntervalMinutes = newValue
+        }
+    }
+    
+    private func setupHapticFeedback() {
+        viewModel.hapticIntervalMinutes = hapticIntervalMinutes
+        viewModel.onHapticInterval = { count in
+            playHapticSequence(count: count)
+        }
+    }
+    
+    private func playHapticSequence(count: Int) {
+        for i in 0..<count {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 0.5) {
+                WKInterfaceDevice.current().play(.start)
             }
         }
     }
