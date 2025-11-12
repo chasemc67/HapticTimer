@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import WatchKit
 
 struct SettingsView: View {
     @AppStorage("hapticIntervalMinutes") private var hapticIntervalMinutes: Int = 5
     @State private var selectedInterval: Int = 5
+    @Binding var selectedTab: Int
     
     var body: some View {
         VStack(spacing: 12) {
@@ -30,7 +32,14 @@ struct SettingsView: View {
                 .foregroundStyle(.secondary)
             
             Button(action: {
+                // Save the setting
                 hapticIntervalMinutes = selectedInterval
+                
+                // Play light haptic feedback
+                WKInterfaceDevice.current().play(.click)
+                
+                // Navigate back to main timer screen
+                selectedTab = 1
             }) {
                 Text("Apply")
                     .font(.headline)
@@ -46,6 +55,6 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(selectedTab: .constant(0))
 }
 
