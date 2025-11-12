@@ -11,6 +11,8 @@ import WatchKit
 struct ContentView: View {
     @StateObject private var viewModel = TimerViewModel()
     @AppStorage("hapticIntervalMinutes") private var hapticIntervalMinutes: Int = 5
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var isScreenActive = true
     
     var body: some View {
         GeometryReader { geometry in
@@ -19,7 +21,7 @@ struct ContentView: View {
                 Spacer()
                     .frame(height: 20)
                 
-                Text(timeString(from: viewModel.elapsedTime))
+                Text(timeString(from: viewModel.elapsedTime, showCentiseconds: isScreenActive))
                     .font(.system(size: 48, weight: .light, design: .monospaced))
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
@@ -76,6 +78,9 @@ struct ContentView: View {
         .onChange(of: hapticIntervalMinutes) { _, newValue in
             viewModel.hapticIntervalMinutes = newValue
         }
+        .onChange(of: scenePhase) { _, newPhase in
+            isScreenActive = (newPhase == .active)
+        }
     }
     
     private func setupHapticFeedback() {
@@ -93,17 +98,23 @@ struct ContentView: View {
         }
     }
     
-    private func timeString(from interval: TimeInterval) -> String {
+    private func timeString(from interval: TimeInterval, showCentiseconds: Bool) -> String {
         let totalSeconds = Int(interval)
         let hours = totalSeconds / 3600
         let minutes = (totalSeconds % 3600) / 60
         let seconds = totalSeconds % 60
         let centiseconds = Int((interval.truncatingRemainder(dividingBy: 1)) * 100)
         
-        if hours > 0 {
-            return String(format: "%02d:%02d:%02d.%02d", hours, minutes, seconds, centiseconds)
+        // Show hours only if >= 60 minutes (3600 seconds)
+        if totalSeconds >= 3600 {
+            // Never show centiseconds for 60+ min sessions
+            return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
         } else {
-            return String(format: "%02d:%02d.%02d", minutes, seconds, centiseconds)
+            if showCentiseconds {
+                return String(format: "%02d:%02d.%02d", minutes, seconds, centiseconds)
+            } else {
+                return String(format: "%02d:%02d", minutes, seconds)
+            }
         }
     }
 }

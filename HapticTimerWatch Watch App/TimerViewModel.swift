@@ -1,7 +1,8 @@
 import Foundation
 import Combine
+import WatchKit
 
-class TimerViewModel: ObservableObject {
+class TimerViewModel: NSObject, ObservableObject {
     @Published var elapsedTime: TimeInterval = 0
     @Published var isRunning: Bool = false
     
@@ -9,6 +10,7 @@ class TimerViewModel: ObservableObject {
     private var startTime: Date?
     private var accumulatedTime: TimeInterval = 0
     private var lastHapticInterval: Int = 0
+    private var extendedRuntimeSession: WKExtendedRuntimeSession?
     
     var hapticIntervalMinutes: Int = 5
     
@@ -19,6 +21,10 @@ class TimerViewModel: ObservableObject {
         guard !isRunning else { return }
         isRunning = true
         startTime = Date()
+        
+        // Start extended runtime session to keep app running in background
+        startExtendedRuntimeSession()
+        
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] _ in
             guard let self = self, let startTime = self.startTime else { return }
             self.elapsedTime = self.accumulatedTime + Date().timeIntervalSince(startTime)
@@ -41,6 +47,9 @@ class TimerViewModel: ObservableObject {
         timer?.invalidate()
         timer = nil
         startTime = nil
+        
+        // End extended runtime session
+        stopExtendedRuntimeSession()
     }
     
     func reset() {
@@ -48,5 +57,45 @@ class TimerViewModel: ObservableObject {
         elapsedTime = 0
         accumulatedTime = 0
         lastHapticInterval = 0
+    }
+    
+    // MARK: - Extended Runtime Session
+    
+    private func startExtendedRuntimeSession() {
+        // Clean up any existing session
+        stopExtendedRuntimeSession()
+        
+        let session = WKExtendedRuntimeSession()
+        extendedRuntimeSession = session
+        
+        session.delegate = self
+        session.start()
+    }
+    
+    private func stopExtendedRuntimeSession() {
+        extendedRuntimeSession?.invalidate()
+        extendedRuntimeSession = nil
+    }
+}
+
+// MARK: - WKExtendedRuntimeSessionDelegate
+
+extension TimerViewModel: WKExtendedRuntimeSessionDelegate {
+    func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        print("Extended runtime session started")
+    }
+    
+    func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        print("Extended runtime session will expire")
+        // Session is about to expire, clean up
+        stopExtendedRuntimeSession()
+    }
+    
+    func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
+        print("Extended runtime session invalidated: \(reason)")
+        if let error = error {
+            print("Error: \(error.localizedDescription)")
+        }
+        self.extendedRuntimeSession = nil
     }
 } 
