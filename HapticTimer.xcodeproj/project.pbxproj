@@ -72,6 +72,16 @@
 		ABB409DA2DDAC674008DCD0E /* HapticTimerWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HapticTimerWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AB3C17EA2ECE5C70003B25A2 /* Exceptions for "HapticTimerWatch Watch App" folder in "HapticTimerWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"HapticTimerWatch-Watch-App-Info.plist",
+			);
+			target = ABB409C02DDAC673008DCD0E /* HapticTimerWatch Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		ABB409922DDAC610008DCD0E /* HapticTimer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -90,6 +100,9 @@
 		};
 		ABB409C52DDAC673008DCD0E /* HapticTimerWatch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AB3C17EA2ECE5C70003B25A2 /* Exceptions for "HapticTimerWatch Watch App" folder in "HapticTimerWatch Watch App" target */,
+			);
 			path = "HapticTimerWatch Watch App";
 			sourceTree = "<group>";
 		};
@@ -783,6 +796,7 @@
 				DEVELOPMENT_TEAM = 5QLYWR2R9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HapticTimerWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = HapticTimerWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -812,6 +826,7 @@
 				DEVELOPMENT_TEAM = 5QLYWR2R9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HapticTimerWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = HapticTimerWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
