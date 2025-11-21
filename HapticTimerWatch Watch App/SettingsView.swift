@@ -9,7 +9,7 @@ import SwiftUI
 import WatchKit
 
 struct SettingsView: View {
-    @AppStorage("hapticIntervalMinutes") private var hapticIntervalMinutes: Int = 5
+    @ObservedObject var connectivity = ConnectivityManager.shared
     @State private var selectedInterval: Int = 5
     @Binding var selectedTab: Int
     
@@ -32,8 +32,8 @@ struct SettingsView: View {
                 .foregroundStyle(.secondary)
             
             Button(action: {
-                // Save the setting
-                hapticIntervalMinutes = selectedInterval
+                // Save the setting and sync to iPhone
+                connectivity.hapticIntervalMinutes = selectedInterval
                 
                 // Play light haptic feedback
                 WKInterfaceDevice.current().play(.click)
@@ -49,7 +49,7 @@ struct SettingsView: View {
             .padding(.horizontal)
         }
         .onAppear {
-            selectedInterval = hapticIntervalMinutes
+            selectedInterval = connectivity.hapticIntervalMinutes
         }
     }
 }

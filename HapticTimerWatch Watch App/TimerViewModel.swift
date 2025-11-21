@@ -12,7 +12,7 @@ class TimerViewModel: NSObject, ObservableObject {
     private var lastHapticInterval: Int = 0
     private var extendedRuntimeSession: WKExtendedRuntimeSession?
     
-    var hapticIntervalMinutes: Int = 5
+    private let connectivity = ConnectivityManager.shared
     
     // Called when a haptic interval is reached, with the count of how many intervals
     var onHapticInterval: ((Int) -> Void)?
@@ -29,8 +29,8 @@ class TimerViewModel: NSObject, ObservableObject {
             guard let self = self, let startTime = self.startTime else { return }
             self.elapsedTime = self.accumulatedTime + Date().timeIntervalSince(startTime)
             
-            // Check for custom interval
-            let intervalSeconds = self.hapticIntervalMinutes * 60
+            // Check for custom interval from ConnectivityManager
+            let intervalSeconds = self.connectivity.hapticIntervalMinutes * 60
             let currentInterval = Int(self.elapsedTime) / intervalSeconds
             if currentInterval > self.lastHapticInterval && currentInterval > 0 {
                 self.lastHapticInterval = currentInterval

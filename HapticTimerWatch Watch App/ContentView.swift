@@ -10,7 +10,7 @@ import WatchKit
 
 struct ContentView: View {
     @StateObject private var viewModel = TimerViewModel()
-    @AppStorage("hapticIntervalMinutes") private var hapticIntervalMinutes: Int = 5
+    @ObservedObject var connectivity = ConnectivityManager.shared
     @Environment(\.scenePhase) private var scenePhase
     @State private var isScreenActive = true
     
@@ -75,16 +75,12 @@ struct ContentView: View {
         .onAppear {
             setupHapticFeedback()
         }
-        .onChange(of: hapticIntervalMinutes) { _, newValue in
-            viewModel.hapticIntervalMinutes = newValue
-        }
         .onChange(of: scenePhase) { _, newPhase in
             isScreenActive = (newPhase == .active)
         }
     }
     
     private func setupHapticFeedback() {
-        viewModel.hapticIntervalMinutes = hapticIntervalMinutes
         viewModel.onHapticInterval = { count in
             playHapticSequence(count: count)
         }
