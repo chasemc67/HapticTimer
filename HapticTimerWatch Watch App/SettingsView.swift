@@ -51,6 +51,10 @@ struct SettingsView: View {
         .onAppear {
             selectedInterval = connectivity.hapticIntervalMinutes
         }
+        .onChange(of: connectivity.hapticIntervalMinutes) { _, newValue in
+            // Update the picker if the value changed from iPhone
+            selectedInterval = newValue
+        }
     }
 }
 

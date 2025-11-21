@@ -13,32 +13,48 @@ class ConnectivityManager: NSObject, ObservableObject {
     
     @Published var hapticIntervalMinutes: Int = 5 {
         didSet {
+            guard oldValue != hapticIntervalMinutes else { return }
             saveAndSync()
         }
     }
     
     private let session = WCSession.default
+    private var isSyncing = false
     
     private override init() {
         super.init()
         
-        // Load saved value
-        let saved = UserDefaults.standard.integer(forKey: "hapticIntervalMinutes")
-        hapticIntervalMinutes = saved > 0 ? saved : 5
-        
-        // Setup WatchConnectivity
+        // Setup WatchConnectivity first
         if WCSession.isSupported() {
             session.delegate = self
             session.activate()
         }
+        
+        // Load saved value after setting up session
+        let saved = UserDefaults.standard.integer(forKey: "hapticIntervalMinutes")
+        let initialValue = saved > 0 ? saved : 5
+        
+        // Set without triggering didSet
+        _hapticIntervalMinutes = Published(initialValue: initialValue)
+        print("📱 iOS: Loaded initial interval: \(initialValue) min")
     }
     
     private func saveAndSync() {
+        guard !isSyncing else { return }
+        
         // Save locally
         UserDefaults.standard.set(hapticIntervalMinutes, forKey: "hapticIntervalMinutes")
         
         // Sync to Watch
-        guard session.activationState == .activated else { return }
+        guard session.activationState == .activated else {
+            print("📱 iOS: Session not activated, cannot sync")
+            return
+        }
+        
+        guard session.isPaired, session.isWatchAppInstalled else {
+            print("📱 iOS: Watch not paired or app not installed")
+            return
+        }
         
         let context = ["hapticIntervalMinutes": hapticIntervalMinutes]
         do {
@@ -73,9 +89,11 @@ extension ConnectivityManager: WCSessionDelegate {
         DispatchQueue.main.async {
             if let interval = applicationContext["hapticIntervalMinutes"] as? Int {
                 print("📱 iOS: Received interval from Watch: \(interval) min")
-                // Update without triggering didSet to avoid sync loop
+                // Update without triggering sync back
+                self.isSyncing = true
                 self.hapticIntervalMinutes = interval
                 UserDefaults.standard.set(interval, forKey: "hapticIntervalMinutes")
+                self.isSyncing = false
             }
         }
     }
