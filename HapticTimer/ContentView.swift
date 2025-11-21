@@ -15,23 +15,6 @@ struct ContentView: View {
         VStack(spacing: 32) {
             Spacer()
             
-            // Interval Picker
-            VStack(spacing: 8) {
-                Text("Haptic Interval")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                Picker("Interval", selection: $connectivity.hapticIntervalMinutes) {
-                    ForEach(1...60, id: \.self) { minutes in
-                        Text("\(minutes) min").tag(minutes)
-                    }
-                }
-                .pickerStyle(.menu)
-                .labelsHidden()
-            }
-            
-            Spacer()
-            
             // Timer Display
             Text(timeString(from: viewModel.elapsedTime))
                 .font(.system(size: 48, weight: .medium, design: .monospaced))
@@ -63,6 +46,22 @@ struct ContentView: View {
             .padding(.horizontal)
             
             Spacer()
+            
+            // Interval Picker
+            VStack(spacing: 8) {
+                Text("Haptic Interval")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                
+                Picker("Interval", selection: $connectivity.hapticIntervalMinutes) {
+                    ForEach(1...60, id: \.self) { minutes in
+                        Text("\(minutes) min").tag(minutes)
+                    }
+                }
+                .pickerStyle(.menu)
+                .labelsHidden()
+            }
+            .padding(.bottom, 16)
         }
     }
     
