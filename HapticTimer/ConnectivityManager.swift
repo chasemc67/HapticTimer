@@ -20,23 +20,27 @@ class ConnectivityManager: NSObject, ObservableObject {
     
     private let session = WCSession.default
     private var isSyncing = false
+    private var isSessionActivated = false
+    private var pendingSync = false
     
     private override init() {
         super.init()
         
-        // Setup WatchConnectivity first
-        if WCSession.isSupported() {
-            session.delegate = self
-            session.activate()
-        }
-        
-        // Load saved value after setting up session
+        // Load saved value first
         let saved = UserDefaults.standard.integer(forKey: "hapticIntervalMinutes")
         let initialValue = saved > 0 ? saved : 5
         
         // Set without triggering didSet
         _hapticIntervalMinutes = Published(initialValue: initialValue)
         print("📱 iOS: Loaded initial interval: \(initialValue) min")
+        
+        // Setup WatchConnectivity after loading value
+        if WCSession.isSupported() {
+            session.delegate = self
+            session.activate()
+        } else {
+            print("📱 iOS: WatchConnectivity not supported")
+        }
     }
     
     private func saveAndSync() {
@@ -45,23 +49,39 @@ class ConnectivityManager: NSObject, ObservableObject {
         // Save locally
         UserDefaults.standard.set(hapticIntervalMinutes, forKey: "hapticIntervalMinutes")
         
-        // Sync to Watch
-        guard session.activationState == .activated else {
-            print("📱 iOS: Session not activated, cannot sync")
+        // Check if session is ready
+        guard isSessionActivated else {
+            print("📱 iOS: Session not ready yet, will sync when activated")
+            pendingSync = true
             return
         }
         
-        guard session.isPaired, session.isWatchAppInstalled else {
-            print("📱 iOS: Watch not paired or app not installed")
+        syncToWatch()
+    }
+    
+    private func syncToWatch() {
+        guard session.activationState == .activated else {
+            print("📱 iOS: Session not activated")
+            return
+        }
+        
+        guard session.isPaired else {
+            print("📱 iOS: Watch not paired")
+            return
+        }
+        
+        guard session.isWatchAppInstalled else {
+            print("📱 iOS: Watch app not installed")
             return
         }
         
         let context = ["hapticIntervalMinutes": hapticIntervalMinutes]
         do {
             try session.updateApplicationContext(context)
-            print("📱 iOS: Synced interval to Watch: \(hapticIntervalMinutes) min")
+            print("📱 iOS: ✅ Synced interval to Watch: \(hapticIntervalMinutes) min")
+            pendingSync = false
         } catch {
-            print("📱 iOS: Error syncing to Watch: \(error)")
+            print("📱 iOS: ❌ Error syncing to Watch: \(error.localizedDescription)")
         }
     }
 }
@@ -69,9 +89,19 @@ class ConnectivityManager: NSObject, ObservableObject {
 extension ConnectivityManager: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
-            print("📱 iOS: WCSession activation error: \(error)")
-        } else {
-            print("📱 iOS: WCSession activated: \(activationState.rawValue)")
+            print("📱 iOS: ❌ WCSession activation error: \(error.localizedDescription)")
+            return
+        }
+        
+        print("📱 iOS: ✅ WCSession activated successfully")
+        print("📱 iOS: Paired: \(session.isPaired), Watch App Installed: \(session.isWatchAppInstalled)")
+        
+        isSessionActivated = true
+        
+        // Sync any pending changes
+        if pendingSync {
+            print("📱 iOS: Syncing pending change...")
+            syncToWatch()
         }
     }
     
